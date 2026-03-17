@@ -39,8 +39,21 @@
             text-decoration: underline;
             text-underline-offset: 2px;
         }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 { animation: fadeInDown 0.8s ease both; }
+        .container > p:nth-of-type(1) { animation: fadeInDown 0.8s ease 0.2s both; }
+        .container > p:nth-of-type(2) { animation: fadeInDown 0.8s ease 0.4s both; }
+        .container > p:nth-of-type(3) { animation: fadeInDown 0.8s ease 0.6s both; }
         .cta {
             margin-top: 2.5rem;
+            animation: fadeIn 1s ease 0.3s both;
         }
         .cta a {
             color: #fafafa;
@@ -48,7 +61,7 @@
             border: 1px solid #fafafa;
             padding: 0.6rem 1.5rem;
             font-size: 1rem;
-            transition: background 0.2s, color 0.2s;
+            transition: background 0.4s ease, color 0.4s ease;
         }
         .cta a:hover {
             background: #fafafa;
@@ -59,6 +72,7 @@
             color: #333;
             font-size: 0.7rem;
             letter-spacing: 0.03em;
+            animation: fadeIn 1s ease 1s both;
         }
     </style>
 </head>
