@@ -13,31 +13,14 @@
             font-family: 'Playfair Display', Georgia, serif;
             background: #0a0a0a;
             color: #fafafa;
-            min-height: 100vh;
-        }
-
-        /* Hero section */
-        .hero {
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('images/blueprint-side.png') center/cover no-repeat;
-            opacity: 0.06;
-            pointer-events: none;
         }
         .container {
             max-width: 640px;
-            position: relative;
-            z-index: 1;
         }
         h1 {
             font-size: 2.4rem;
@@ -56,8 +39,6 @@
             text-decoration: underline;
             text-underline-offset: 2px;
         }
-
-        /* Animations */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-16px); }
             to { opacity: 1; transform: translateY(0); }
@@ -88,60 +69,8 @@
             color: #0a0a0a;
             transform: scale(1.08);
         }
-
-        /* Blueprints gallery */
-        .blueprints {
-            padding: 0 2rem 4rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .blueprints-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            gap: 1.5rem;
-        }
-        .blueprints-grid .bp {
-            overflow: hidden;
-            border: 1px solid #1a1a1a;
-            border-radius: 2px;
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .blueprints-grid .bp.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .blueprints-grid .bp:first-child {
-            grid-column: 1 / -1;
-        }
-        .blueprints-grid .bp img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.85);
-            transition: filter 0.4s ease, transform 0.6s ease;
-        }
-        .blueprints-grid .bp:hover img {
-            filter: brightness(1);
-            transform: scale(1.03);
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .blueprints-grid {
-                grid-template-columns: 1fr;
-            }
-            .blueprints-grid .bp:first-child {
-                grid-column: 1;
-            }
-        }
-
         footer {
-            padding: 2rem;
-            text-align: center;
+            margin-top: 3rem;
             color: #333;
             font-size: 0.7rem;
             letter-spacing: 0.03em;
@@ -150,37 +79,13 @@
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="container">
-            <h1>Propulsion Labs</h1>
-            <p>Propulsion Labs, founded and operated by <a href="https://www.linkedin.com/in/hamid-moopen-4b106a23a/" target="_blank" rel="noopener">Hamid Moopen</a>, builds automated go-to-market systems for early-stage startups that can't afford to throw bodies at growth. We replace manual acquisition workflows with repeatable infrastructure: programmatic distribution, automated pipeline operations, and performance tracking systems that surface signal without anyone watching dashboards.</p>
-            <p>The goal is always the same. Remove the human bottleneck from every step that doesn't require taste or strategy, so founders get consistent top-of-funnel volume without scaling headcount.</p>
-            <p>We architect the full system, from distribution to measurement, and price around outcomes, not hours. If your growth motion still depends on someone doing it manually, we're probably a fit.</p>
-            <p class="cta"><a href="https://cal.com/hamid/20min" target="_blank" rel="noopener">Book a Call</a></p>
-        </div>
-    </section>
-
-    <section class="blueprints">
-        <div class="blueprints-grid">
-            <div class="bp"><img src="images/blueprint-side.png" alt="Blueprint — profile view"></div>
-            <div class="bp"><img src="images/blueprint-front.png" alt="Blueprint — front view"></div>
-            <div class="bp"><img src="images/blueprint-rear.png" alt="Blueprint — rear view"></div>
-        </div>
-    </section>
-
-    <footer>Moopen LLC</footer>
-
-    <script>
-        const bps = document.querySelectorAll('.bp');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), i * 150);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        bps.forEach(bp => observer.observe(bp));
-    </script>
+    <div class="container">
+        <h1>Propulsion Labs</h1>
+        <p>Propulsion Labs, founded and operated by <a href="https://www.linkedin.com/in/hamid-moopen-4b106a23a/" target="_blank" rel="noopener">Hamid Moopen</a>, builds automated go-to-market systems for early-stage startups that can't afford to throw bodies at growth. We replace manual acquisition workflows with repeatable infrastructure: programmatic distribution, automated pipeline operations, and performance tracking systems that surface signal without anyone watching dashboards.</p>
+        <p>The goal is always the same. Remove the human bottleneck from every step that doesn't require taste or strategy, so founders get consistent top-of-funnel volume without scaling headcount.</p>
+        <p>We architect the full system, from distribution to measurement, and price around outcomes, not hours. If your growth motion still depends on someone doing it manually, we're probably a fit.</p>
+        <p class="cta"><a href="https://cal.com/hamid/20min" target="_blank" rel="noopener">Book a Call</a></p>
+        <footer>Moopen LLC</footer>
+    </div>
 </body>
 </html>
